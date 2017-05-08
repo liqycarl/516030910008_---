@@ -6,8 +6,8 @@
 using namespace std;
 void getSuffix( int num)
 {
-	map<string,int> wordMap;
-	map<string, int>::iterator it;
+	map<int,string> wordMap;
+	map<int,string>::iterator it;
 	string filename = "EnglishWords.txt";
 	ifstream fin(filename.c_str());
 	string s;
@@ -31,14 +31,16 @@ void getSuffix( int num)
 					}
 				}
 			}
-			wordMap["suffix"] = count;
+			wordMap[count] = suffix;
 		}
 	}
 	it = wordMap.end();
-	while (it != wordMap.end()-10)
+	int time=0;
+	while (time!=10)
 	{
-		cout << it->first << ":" << it->second << " ";
+		cout << it->second << ":" << it->first << " ";
 		it--;
+		time++;
 	}
 }
 int main()
